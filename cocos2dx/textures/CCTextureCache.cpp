@@ -220,7 +220,7 @@ void CCTextureCache::addImageAsync(const char *path, CCObject *target, SEL_CallF
 
 	if (target)
 	{
-		dynamic_cast<CCObject*>(target)->retain();
+		target->retain();
 	}
 
 	// lazy init
@@ -300,7 +300,7 @@ void CCTextureCache::addImageAsyncCallBack(ccTime dt)
 		if (target && selector)
 		{
 			(target->*selector)(texture);
-			dynamic_cast<CCObject*>(target)->release();
+			target->release();
 		}		
 
 		delete pImage;
